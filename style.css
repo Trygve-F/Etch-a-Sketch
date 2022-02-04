@@ -1,6 +1,14 @@
-#flexgrid {
-    display: flex;
-    flex-wrap: wrap;
+body {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.grid {
+    display: inline-grid;
+    grid-template-columns: repeat(16, 2fr);
+    grid-template-rows: repeat(16, 2fr);
     border: 10px;
     background-color: #a0dfce;
     height: 800px;
@@ -11,8 +19,8 @@
 div {
     box-sizing: border-box;
     border: 1px solid black;
-    width: 50px;
+    width: auto;
     height: auto;
-    transition: background-color 5ms;
+    transition: background-color 0.5s;
     background-color: transparent;
 }
