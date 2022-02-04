@@ -10,7 +10,7 @@ body {
     grid-template-columns: repeat(16, 2fr);
     grid-template-rows: repeat(16, 2fr);
     border: 10px;
-    background-color: #a0dfce;
+    background-color: #ffffff;
     height: 800px;
     width: 800px;
     
@@ -18,9 +18,9 @@ body {
 
 div {
     box-sizing: border-box;
-    border: 1px solid black;
+    border: 1px solid rgb(179, 179, 179);
     width: auto;
     height: auto;
-    transition: background-color 0.5s;
+    transition: background-color 0.1s;
     background-color: transparent;
 }
