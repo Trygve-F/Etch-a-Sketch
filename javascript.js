@@ -20,6 +20,7 @@ function removeAllChildNodes(parent) {
 
 function createUserGrid() {
     let val = prompt('Enter size of grid (eg. "10" is 10x10)');
+    if (val > 0 && val <= 100) {
     grid.setAttribute('style', `grid-template-columns: repeat(${val}, 2fr); grid-template-rows: repeat(${val}, 2fr);`);
     for (let i = 0; i < val*val; i++) {
         const div = document.createElement('div');
@@ -29,6 +30,10 @@ function createUserGrid() {
     });
     grid.appendChild(div)
   };
+} else {
+    alert('Error, size must be between 0 and 100')
+    createUserGrid()
+}
 }
 
 const resize = document.querySelector('#resize');
