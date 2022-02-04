@@ -28,11 +28,11 @@ function createUserGrid() {
             e.target.style.backgroundColor = newColor
     });
     grid.appendChild(div)
-};
+  };
 }
 
-const reset = document.querySelector('#reset');
-reset.addEventListener('click', function() {
+const resize = document.querySelector('#resize');
+resize.addEventListener('click', function() {
     removeAllChildNodes(grid);
     createUserGrid();
     })
