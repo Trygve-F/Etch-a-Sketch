@@ -1,11 +1,12 @@
 const grid = document.querySelector('.grid');
+let newColor = '#000000'
 
 function createGrid() {
 for (i = 0; i < 256; i++) {
     const div = document.createElement('div');
     div.classList.add('cell')
     div.addEventListener('mouseenter', function(e) {
-        e.target.style.backgroundColor = 'black'
+        e.target.style.backgroundColor = newColor
         });
     grid.appendChild(div);
     }
@@ -24,7 +25,7 @@ function createUserGrid() {
         const div = document.createElement('div');
         div.classList.add('cell');
         div.addEventListener('mouseenter', function(e) {
-            e.target.style.backgroundColor = 'black'
+            e.target.style.backgroundColor = newColor
     });
     grid.appendChild(div)
 };
@@ -36,10 +37,38 @@ reset.addEventListener('click', function() {
     createUserGrid();
     })
     
+function chooseColor() {
     const chooseColor = document.querySelector('#color');
     chooseColor.addEventListener('input', function(){
-    let newColor = document.getElementById('color').value;
+    newColor = document.getElementById('color').value;
     return newColor;
     })
-
+}
+chooseColor()
 createGrid()
+
+
+
+/*const x = document.getElementById('some_node')
+x.onclick=(e)=>{
+  e.stopPropagation()
+  // this logic will be triggered on click for both desktop and mobile
+}
+x.onmouseenter=(e)=>{
+  e.stopPropagation()
+  // this logic will be triggered on click for mobile only (but will
+  //have already been triggered on desktop when cursor entered node)
+}
+
+let isMobile = false
+x.addEventListener('touchstart',(e)=>{
+  isMobile = true
+}, false);
+
+x.onmouseenter=(e)=>{
+  e.stopPropagation()
+  if(!isMobile){
+    // this logic will no longer cause a conflict between desktop and mobile
+  }
+}
+*/
