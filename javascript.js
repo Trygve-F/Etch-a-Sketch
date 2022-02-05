@@ -19,7 +19,7 @@ function removeAllChildNodes(parent) {
 };
 
 function createUserGrid() {
-    let val = prompt('Enter size of grid (eg. "10" is 10x10)');
+    let val = prompt('Enter size of grid (eg. "10" is 10x10)', '10');
     if (val > 0 && val <= 100) {
     grid.setAttribute('style', `grid-template-columns: repeat(${val}, 2fr); grid-template-rows: repeat(${val}, 2fr);`);
     for (let i = 0; i < val*val; i++) {
@@ -51,29 +51,3 @@ function chooseColor() {
 }
 chooseColor()
 createGrid()
-
-
-
-/*const x = document.getElementById('some_node')
-x.onclick=(e)=>{
-  e.stopPropagation()
-  // this logic will be triggered on click for both desktop and mobile
-}
-x.onmouseenter=(e)=>{
-  e.stopPropagation()
-  // this logic will be triggered on click for mobile only (but will
-  //have already been triggered on desktop when cursor entered node)
-}
-
-let isMobile = false
-x.addEventListener('touchstart',(e)=>{
-  isMobile = true
-}, false);
-
-x.onmouseenter=(e)=>{
-  e.stopPropagation()
-  if(!isMobile){
-    // this logic will no longer cause a conflict between desktop and mobile
-  }
-}
-*/
