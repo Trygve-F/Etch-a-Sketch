@@ -19,7 +19,7 @@ function removeAllChildNodes(parent) {
 };
 
 function createUserGrid() {
-    let val = prompt('Enter size of grid (eg. "10" is 10x10)', '10');
+    let val = prompt('Enter size of grid (eg. "16" is 16x16)', '16');
     if (val > 0 && val <= 100) {
     grid.setAttribute('style', `grid-template-columns: repeat(${val}, 2fr); grid-template-rows: repeat(${val}, 2fr);`);
     for (let i = 0; i < val*val; i++) {
