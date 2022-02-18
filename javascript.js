@@ -1,14 +1,11 @@
 const grid = document.querySelector('.grid');
-let newColor = '#000000'
+let selectedColor = '#000000'
 
 function createGrid() {
 for (i = 0; i < 256; i++) {
-    const div = document.createElement('div');
-    div.classList.add('cell')
-    div.addEventListener('mouseenter', function(e) {
-        e.target.style.backgroundColor = newColor
-        });
-    grid.appendChild(div);
+    let square= document.createElement('div');
+    square.classList.add('cell')
+    grid.appendChild(square);
     }
 };
 
@@ -18,17 +15,40 @@ function removeAllChildNodes(parent) {
     }
 };
 
+grid.addEventListener('mousedown', event =>{ 
+    paintGridEvent = paintCell(event, selectedColor);
+    if(event.buttons == 1){        
+        window.addEventListener('mouseover', (e) => {
+            if(selectedColor !== ('#000000')){
+                paintCell(e, chooseColor());
+            }else{
+                paintCell(e, selectedColor);
+            }            
+        });
+    }
+});
+
+
+function paintCell(elem, color){    
+    if(elem.buttons == 1){
+        if(elem.target.classList == 'cell'){
+            let square = elem.target;    
+            square.style.backgroundColor = selectedColor;
+        }  
+    } {
+        return;
+    }
+}
+
+
 function createUserGrid() {
     let val = prompt('Enter size of grid (eg. "16" is 16x16)', '16');
     if (val > 0 && val <= 100) {
     grid.setAttribute('style', `grid-template-columns: repeat(${val}, 2fr); grid-template-rows: repeat(${val}, 2fr);`);
     for (let i = 0; i < val*val; i++) {
-        const div = document.createElement('div');
-        div.classList.add('cell');
-        div.addEventListener('mouseenter', function(e) {
-            e.target.style.backgroundColor = newColor
-    });
-    grid.appendChild(div)
+        const square = document.createElement('div');
+        square.classList.add('cell');
+        grid.appendChild(square)
   };
 } else {
     alert('Error, size must be between 0 and 100')
@@ -45,8 +65,8 @@ resize.addEventListener('click', function() {
 function chooseColor() {
     const chooseColor = document.querySelector('#color');
     chooseColor.addEventListener('input', function(){
-    newColor = document.getElementById('color').value;
-    return newColor;
+    selectedColor = document.getElementById('color').value;
+    return selectedColor;
     })
 }
 chooseColor()
